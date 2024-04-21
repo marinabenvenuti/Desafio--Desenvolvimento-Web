@@ -36,7 +36,7 @@ function PrimeCalculation({primeList}) {
             />
 
             <Buttonn text='Enviar' onClick={handleClick} />
-            <Buttonn text='Limpar' onClick={() => { setNumber(''); setInvalidNumber(''); }} />
+            <Buttonn text='Limpar' onClick={() => { setNumber('')}} />
         </>
     );
 }

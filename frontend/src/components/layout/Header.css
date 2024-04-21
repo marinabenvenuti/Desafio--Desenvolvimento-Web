@@ -1,0 +1,11 @@
+.header {
+    background-color: #eaaee9;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+  h2 {
+    text-align: center;
+    color: #966D95;
+    font-size: 3em;
+
+  }

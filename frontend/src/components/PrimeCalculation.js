@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import Buttonn from "./Button";
 import Input from "./Input";
-import PrimeList from "./PrimeList.js";
 import api from '../Api.js';
 
 function PrimeCalculation({primeList}) {
     const [number, setNumber] = useState();
 
+    const handleChange = (event) => {
+        setNumber(event.target.value);
+    };
+
     const handleClick = () => {
         const num = parseInt(number);
+        console.log(number);
         console.log('Número:', num);
         if (isNaN(num)) {
             alert('Digite um número antes de enviar');
@@ -22,21 +26,21 @@ function PrimeCalculation({primeList}) {
     const getPrimes = (number) => {
         api.get("/primeNumbers?k="+number)
         api.then((response) => {
-            <PrimeList number={number} primes ={response.primeNumbersList} execution_time={response.executionTime} />
+            primeList(number, response.primeNumbersList, response.executionTime)
         })
-    }
+    };
 
     return (
         <>
             <Input
-                onChange={(e) => setNumber(e.target.value)}
+                onChange={handleChange}
                 type='number'
                 placeholder='Digite o número'
                 value={number}
             />
 
             <Buttonn text='Enviar' onClick={handleClick} />
-            <Buttonn text='Limpar' onClick={() => { setNumber('')}} />
+            <Buttonn text='Limpar' onClick={() => { setNumber(''); }} />
         </>
     );
 }

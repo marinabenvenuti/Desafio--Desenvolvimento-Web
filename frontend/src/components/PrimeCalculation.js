@@ -34,7 +34,7 @@ function PrimeCalculation() {
         .then((response) => {
             const newPrimeData = {
                 number: number,
-                primes: response.data.primeNumbersList,
+                primes: response.data.primeNumbers,
                 execution_time: response.data.executionTime
             };
             setPrimeData(newPrimeData);
@@ -74,7 +74,7 @@ function PrimeCalculation() {
                 
                 <PrimeList
                     number={primeData.number}
-                    primes={primeData.primes.join(', ')}
+                    primes={primeData.primes}
                     execution_time={primeData.execution_time}
                 />
             )}

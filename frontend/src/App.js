@@ -7,8 +7,8 @@ import PrimeCalculation from "./components/PrimeCalculation";
 function App() {
   return (
     <div className="App">
-        <Header title='Números Primos' link='Histórico de números'/>
-        <Cards title='Esse sistema calcula todos os números primos menores do que o número que você digitar' comp={PrimeCalculation}/>
+        <Header title='Calculadora de Primos_'/>
+        <Cards title='Esse sistema calcula a quantidade de números primos menores do que o número que você digitar' comp={PrimeCalculation}/>
         <Footer />
     </div>
   );

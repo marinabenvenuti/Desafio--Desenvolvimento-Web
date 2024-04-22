@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import Buttonn from "./Button";
 import Input from "./Input";
-import api from '../Api.js';
+import api from '../api.js';
+import PrimeList from "./PrimeList.js";
 
-function PrimeCalculation({primeList}) {
+
+function PrimeCalculation() {
     const [number, setNumber] = useState();
+    const [primeData, setPrimeData] = useState(null);
+    const [showPrimeList, setShowPrimeList] = useState(false);
+    const [storage, setStorage] = useState([]);
 
     const handleChange = (event) => {
         setNumber(event.target.value);
@@ -16,18 +21,41 @@ function PrimeCalculation({primeList}) {
         console.log('Número:', num);
         if (isNaN(num)) {
             alert('Digite um número antes de enviar');
-        } else if(num <= 0){
-            alert('Número inválido. Digite um número maior que zero');
+        } else if(num <= 0 || num>100000){
+            alert('Número inválido. Digite um número maior que 0 e menor que 100.000');
         } else {
             getPrimes(number)
         }
     };
 
     const getPrimes = (number) => {
-        api.get("/primeNumbers?k="+number)
-        api.then((response) => {
-            primeList(number, response.primeNumbersList, response.executionTime)
+        api
+        .get("/primeNumbers?k="+number)
+        .then((response) => {
+            const newPrimeData = {
+                number: number,
+                primes: response.data.primeNumbersList,
+                execution_time: response.data.executionTime
+            };
+            setPrimeData(newPrimeData);
+            setShowPrimeList(true);
+            addToStorage(primeData);
+
+
         })
+        .catch((err) => {
+            console.error("ops! ocorreu um erro " + err);
+        })
+    };
+
+    const handleClear = () => {
+        setNumber('');
+        setShowPrimeList(false);
+        setPrimeData(null);
+    };
+
+    const addToStorage = (primeData) => {
+        setStorage([...storage, primeData]);
     };
 
     return (
@@ -40,7 +68,16 @@ function PrimeCalculation({primeList}) {
             />
 
             <Buttonn text='Enviar' onClick={handleClick} />
-            <Buttonn text='Limpar' onClick={() => { setNumber(''); }} />
+            <Buttonn text='Limpar' onClick={handleClear} />
+
+            {showPrimeList && (
+                
+                <PrimeList
+                    number={primeData.number}
+                    primes={primeData.primes.join(', ')}
+                    execution_time={primeData.execution_time}
+                />
+            )}
         </>
     );
 }

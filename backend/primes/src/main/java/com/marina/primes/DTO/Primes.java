@@ -1,36 +1,33 @@
 package com.marina.primes.DTO;
 
-import java.util.ArrayList;
-
 public class Primes
 {
-    private ArrayList<Integer> primeNumbersList;
+    private Long primeNumbers;
     private Long executionTime;
 
-    public Primes(ArrayList<Integer> primeNumbersList, Long executionTime)
+    public Primes(Long primeNumbers, Long executionTime)
     {
-        this.primeNumbersList = primeNumbersList;
+        this.primeNumbers = primeNumbers;
         this.executionTime = executionTime;
     }
 
-    public ArrayList<Integer> getPrimeNumbersList()
+    public Long getPrimeNumbers()
     {
-        return this.primeNumbersList;
+        return primeNumbers;
     }
 
     public Long getExecutionTime()
     {
-        return this.executionTime;
+        return executionTime;
     }
 
-    public void setPrimeNumbersList(ArrayList<Integer> primeNumbersList)
+    public void setPrimeNumbers(Long primeNumbers)
     {
-        this.primeNumbersList = primeNumbersList;
+        this.primeNumbers = primeNumbers;
     }
 
     public void setExecutionTime(Long executionTime)
     {
         this.executionTime = executionTime;
     }
-
 }

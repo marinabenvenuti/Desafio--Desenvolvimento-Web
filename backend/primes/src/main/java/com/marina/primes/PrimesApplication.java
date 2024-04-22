@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-import java.util.ArrayList;
 
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -24,24 +23,24 @@ public class PrimesApplication
 	public Primes primeNumbersTillK(@RequestParam Integer k)
 	{
 		Long startTime = System.nanoTime();
-		ArrayList<Integer> primeNumbersList = findAllPrimeNumberBeforeK(k);
+		Long primeNumbers = findAllPrimeNumberBeforeK(k);
 		Long executionTime = (System.nanoTime() - startTime) / 1000000;
 
-		return new Primes(primeNumbersList, executionTime);
+		return new Primes(primeNumbers, executionTime);
 	}
 
 
-	private ArrayList<Integer> findAllPrimeNumberBeforeK(Integer k)
+	private Long findAllPrimeNumberBeforeK(Integer k)
 	{
-		ArrayList<Integer> primeNumbersList = new ArrayList<>();
+		Long primeNumbers = 0L;
 		for (int i = 2; i < k; i++)
 		{
 			if (isPrime(i))
 			{
-				primeNumbersList.add(i);
+				primeNumbers++;
 			}
 		}
-		return primeNumbersList;
+		return primeNumbers;
 	}
 
 	private boolean isPrime(Integer number)

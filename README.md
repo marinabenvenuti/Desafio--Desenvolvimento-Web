@@ -7,7 +7,7 @@ Este é um projeto desenvolvido para a segunda etapa do processo seletivo para D
 ## Tecnologias utilizadas
 * Para o frontend, foi utilizada a biblioteca ReactJS, conforme a sugestão do laboratório;
 * Para o armazenamento do histórico do usuário, foi utilizado o armazenamento do local storage do navegador;
-* Para a implementação do backend, foi utilizado Java em conjunto com o Spring Boot;
+* Para a implementação do backend, foi utilizado Java em conjunto com o Spring Boot, conforme a sugestão do laboratório;
 * Por fim, para a incoporação entre o backend e o frontend, foi utilizada a Api Axios do Javascript.
 
 ## Como executar esse projeto?

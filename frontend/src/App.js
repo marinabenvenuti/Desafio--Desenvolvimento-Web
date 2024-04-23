@@ -3,6 +3,7 @@ import Footer from "./components/layout/Footer";
 import React, { useEffect, useState } from 'react';
 import CalculatorCard from "./components/CalculatorCard";
 import HistoryCard from "./components/HistoryCard";
+import './App.css'
 
 function App() {
   const [previousNumbers, setPreviousNumbers] = useState([]);
@@ -28,9 +29,11 @@ function App() {
   return (
     <div className="App">
         <Header title='Calculadora de Primos_'/>
-        <CalculatorCard title='Esse sistema calcula a quantidade de números primos menores do que o número que você digitar'
-           handleHistory={handleHistory} />
-        <HistoryCard title="Histórico de números" previousNumbers={previousNumbers} />
+        <div id="content">
+          <CalculatorCard title='Esse sistema calcula a quantidade de números primos menores do que o número que você digitar'
+             handleHistory={handleHistory} />
+          <HistoryCard title="Histórico de números" previousNumbers={previousNumbers} />
+        </div>
         <Footer />
     </div>
   );

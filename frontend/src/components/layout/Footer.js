@@ -1,8 +1,9 @@
 import React from 'react';
+import './Footer.css';
 
 const Footer = () => {
     return (
-      <footer className="my-5 text-muted text-center text-small">
+      <footer>
         <p className="mb-1">&copy; 2024 Marina B Web development</p>
       </footer>
     );

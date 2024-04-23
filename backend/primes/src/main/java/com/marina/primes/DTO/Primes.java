@@ -1,33 +1,27 @@
 package com.marina.primes.DTO;
 
-public class Primes
-{
-    private Long primeNumbers;
+public class Primes {
+    private Long amountOfPrimeNumbers;
     private Long executionTime;
 
-    public Primes(Long primeNumbers, Long executionTime)
-    {
-        this.primeNumbers = primeNumbers;
+    public Primes(Long primeNumbers, Long executionTime) {
+        this.amountOfPrimeNumbers = primeNumbers;
         this.executionTime = executionTime;
     }
 
-    public Long getPrimeNumbers()
-    {
-        return primeNumbers;
+    public Long getAmountOfPrimeNumbers() {
+        return amountOfPrimeNumbers;
     }
 
-    public Long getExecutionTime()
-    {
+    public Long getExecutionTime() {
         return executionTime;
     }
 
-    public void setPrimeNumbers(Long primeNumbers)
-    {
-        this.primeNumbers = primeNumbers;
+    public void setAmountOfPrimeNumbers(Long amountOfPrimeNumbers) {
+        this.amountOfPrimeNumbers = amountOfPrimeNumbers;
     }
 
-    public void setExecutionTime(Long executionTime)
-    {
+    public void setExecutionTime(Long executionTime) {
         this.executionTime = executionTime;
     }
 }

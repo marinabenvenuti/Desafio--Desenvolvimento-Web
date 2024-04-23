@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-
-
 @CrossOrigin(origins = "http://localhost:3000")
 @SpringBootApplication
 @RestController
@@ -20,22 +18,21 @@ public class PrimesApplication
 	}
 
 	@GetMapping("/primeNumbers")
-	public Primes primeNumbersTillK(@RequestParam Integer k)
+	public Primes amountOfPrimeNumbersBeforeK(@RequestParam Long k)
 	{
 		Long startTime = System.nanoTime();
-		Long primeNumbers = findAllPrimeNumberBeforeK(k);
+		Long amountOfPrimeNumbers = calcAmountOfPrimeNumbersBeforeK(k);
 		Long executionTime = (System.nanoTime() - startTime) / 1000000;
 
-		return new Primes(primeNumbers, executionTime);
+		return new Primes(amountOfPrimeNumbers, executionTime);
 	}
 
-
-	private Long findAllPrimeNumberBeforeK(Integer k)
+	private Long calcAmountOfPrimeNumbersBeforeK(Long k)
 	{
 		Long primeNumbers = 0L;
-		for (int i = 2; i < k; i++)
+		for (Long n = 2L; n < k; n++)
 		{
-			if (isPrime(i))
+			if (isPrime(n))
 			{
 				primeNumbers++;
 			}
@@ -43,16 +40,16 @@ public class PrimesApplication
 		return primeNumbers;
 	}
 
-	private boolean isPrime(Integer number)
+	private boolean isPrime(Long number)
 	{
 		if (number <= 1)
 		{
 			return false;
 		}
 
-		for (int i = 2; i <= Math.sqrt(number); i++)
+		for (Long n = 2L; n <= Math.sqrt(number); n++)
 		{
-			if (number % i == 0) {
+			if (number % n == 0) {
 				return false;
 			}
 		}

@@ -10,7 +10,7 @@ Este é um projeto desenvolvido para a segunda etapa do processo seletivo para D
 * Para a implementação do backend, foi utilizado Java em conjunto com o Spring Boot, conforme a sugestão do laboratório;
 * Por fim, para a incoporação entre o backend e o frontend, foi utilizada a Api Axios do Javascript.
 
-## Como executar esse projeto?
+## Como executar este projeto?
 ### - Clone este repositório através do comando: git clone https://github.com/marinabenvenuti/desafio-desenvolvimento-web.git
 ### - Para a execução do frontend, execute os seguintes comandos no diretório desafio-desenvolvimento-web/frontend:
 1. npm install

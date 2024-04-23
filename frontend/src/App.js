@@ -30,7 +30,7 @@ function App() {
     <div className="App">
         <Header title='Calculadora de Primos_'/>
         <div id="content">
-          <CalculatorCard title='Esse sistema calcula a quantidade de números primos menores do que o número que você digitar'
+          <CalculatorCard title='Este sistema calcula a quantidade de números primos que são menores que o número que você digitar'
              handleHistory={handleHistory} />
           <HistoryCard title="Histórico de números" previousNumbers={previousNumbers} />
         </div>

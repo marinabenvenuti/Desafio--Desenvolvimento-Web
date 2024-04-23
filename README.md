@@ -24,12 +24,17 @@ Como essa aproximação não se comporta muito bem com números menores, optei p
 
 ## Como Executar este Projeto?
 #### - Clone este repositório através do comando: git clone https://github.com/marinabenvenuti/desafio-desenvolvimento-web.git
-#### - Para a execução do frontend, execute os seguintes comandos no diretório desafio-desenvolvimento-web/frontend:
+#### - Frontend:
+Para a execução do frontend, execute os seguintes comandos no diretório `desafio-desenvolvimento-web/frontend`:
 1. `npm install`
 2. `npm start`
 
-#### - Para a execução do backend, execute o programa PrimesApplication.java no diretório abaixo:
-desafio-desenvolvimento-web/backend/primes/src/main/java/com/marina/primes
+#### - Backend:
+Para executar o backend, você precisará de um ambiente de desenvolvimento capaz de rodar uma aplicação Spring Boot, como o IntelliJ IDEA. Em seguida, localize o arquivo `PrimesApplication.java` no seguinte diretório:
+
+`desafio-desenvolvimento-web/backend/primes/src/main/java/com/marina/primes`
+
+Execute este arquivo para iniciar a aplicação.
 
 
 

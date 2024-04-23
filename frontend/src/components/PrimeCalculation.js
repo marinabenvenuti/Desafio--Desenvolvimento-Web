@@ -3,6 +3,7 @@ import Buttonn from "./Button";
 import Input from "./Input";
 import api from '../api.js';
 import PrimeList from "./PrimeList.js";
+import Swal from 'sweetalert2';
 
 function PrimeCalculation({ handleHistory }) {
     const [primeData, setPrimeData] = useState(null);
@@ -15,10 +16,21 @@ function PrimeCalculation({ handleHistory }) {
 
     const handleClick = () => {
         const num = parseInt(number);
+        const Swal = require('sweetalert2')
         if (isNaN(num)) {
-            alert('Digite um número antes de enviar');
+            Swal.fire({
+                title: 'Erro!',
+                text: 'Você precisa digitar algo antes de enviar',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+              })
         } else if(num <= 0){
-            alert('Número inválido. Digite um número maior que 0 ');
+            Swal.fire({
+                title: 'Erro!',
+                text: 'Digite um número maior do que zero',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+              })
         } else {
             getPrimes(number)
         }

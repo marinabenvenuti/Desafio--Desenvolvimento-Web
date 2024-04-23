@@ -1,14 +1,14 @@
 import Form from 'react-bootstrap/Form';
 import React from 'react';
 
-function Input(props) {
+function Input({type, placeholder, value, onChange}) {
   return (
     <>
       <Form.Control 
-        type={props.type} 
-        placeholder={props.placeholder} 
-        value={props.value}
-        onChange={props.onChange} />
+        type={type} 
+        placeholder={placeholder} 
+        value={value}
+        onChange={onChange} />
       <br />
     </>
   );

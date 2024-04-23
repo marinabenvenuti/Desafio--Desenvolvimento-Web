@@ -2,9 +2,9 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import './Button.css';
 
-function Buttonn(props){
+function Buttonn({text, onClick}){
     return(
-        <Button variant="outline-secondary" onClick={props.onClick}>{props.text}</Button>
+        <Button variant="outline-secondary" onClick={onClick}>{text}</Button>
     )
 }
 

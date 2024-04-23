@@ -11,12 +11,13 @@ Este é um projeto desenvolvido para a segunda etapa do processo seletivo para D
 * Por fim, para a incoporação entre o backend e o frontend, foi utilizada a Api Axios do Javascript.
 
 ## Como executar esse projeto?
-### Clone este repositório através do comando: git clone https://github.com/marinabenvenuti/desafio-desenvolvimento-web.git
-### Para a execução do frontend, execute os seguintes comandos no diretório desafio-desenvolvimento-web/frontend:
+### * Clone este repositório através do comando: git clone https://github.com/marinabenvenuti/desafio-desenvolvimento-web.git
+### * Para a execução do frontend, execute os seguintes comandos no diretório desafio-desenvolvimento-web/frontend:
 1. npm install
 2. npm start
 
-### Para a execução do backend, execute o programa PrimesApplication.java no diretório desafio-desenvolvimento-web/backend/primes/src/main/java/com/marina/primes
+### * Para a execução do backend, execute o programa PrimesApplication.java no diretório abaixo:
+desafio-desenvolvimento-web/backend/primes/src/main/java/com/marina/primes
 
 
 

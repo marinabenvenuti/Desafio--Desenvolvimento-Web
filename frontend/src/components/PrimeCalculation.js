@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Buttonn from "./Button";
 import Input from "./Input";
-import api from '../api.js';
+import api from '../Api.js';
 import PrimeList from "./PrimeList.js";
 import Swal from 'sweetalert2';
 

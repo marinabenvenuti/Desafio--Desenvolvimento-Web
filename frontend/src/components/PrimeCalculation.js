@@ -4,12 +4,10 @@ import Input from "./Input";
 import api from '../api.js';
 import PrimeList from "./PrimeList.js";
 
-
-function PrimeCalculation() {
-    const [number, setNumber] = useState();
+function PrimeCalculation({ handleHistory }) {
     const [primeData, setPrimeData] = useState(null);
+    const [number, setNumber] = useState('');
     const [showPrimeList, setShowPrimeList] = useState(false);
-    const [storage, setStorage] = useState([]);
 
     const handleChange = (event) => {
         setNumber(event.target.value);
@@ -17,12 +15,10 @@ function PrimeCalculation() {
 
     const handleClick = () => {
         const num = parseInt(number);
-        console.log(number);
-        console.log('Número:', num);
         if (isNaN(num)) {
             alert('Digite um número antes de enviar');
-        } else if(num <= 0 || num>100000){
-            alert('Número inválido. Digite um número maior que 0 e menor que 100.000');
+        } else if(num <= 0){
+            alert('Número inválido. Digite um número maior que 0 ');
         } else {
             getPrimes(number)
         }
@@ -34,14 +30,12 @@ function PrimeCalculation() {
         .then((response) => {
             const newPrimeData = {
                 number: number,
-                primes: response.data.primeNumbers,
+                primes: response.data.amountOfPrimeNumbers,
                 execution_time: response.data.executionTime
             };
             setPrimeData(newPrimeData);
             setShowPrimeList(true);
-            addToStorage(primeData);
-
-
+            handleHistory([number, newPrimeData.primes]);
         })
         .catch((err) => {
             console.error("ops! ocorreu um erro " + err);
@@ -52,10 +46,6 @@ function PrimeCalculation() {
         setNumber('');
         setShowPrimeList(false);
         setPrimeData(null);
-    };
-
-    const addToStorage = (primeData) => {
-        setStorage([...storage, primeData]);
     };
 
     return (
@@ -69,6 +59,7 @@ function PrimeCalculation() {
 
             <Buttonn text='Enviar' onClick={handleClick} />
             <Buttonn text='Limpar' onClick={handleClear} />
+            
 
             {showPrimeList && (
                 

@@ -1,14 +1,36 @@
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
-import Cards from "./components/Card";
-import React from 'react';
-import PrimeCalculation from "./components/PrimeCalculation";
+import React, { useEffect, useState } from 'react';
+import CalculatorCard from "./components/CalculatorCard";
+import HistoryCard from "./components/HistoryCard";
 
 function App() {
+  const [previousNumbers, setPreviousNumbers] = useState([]);
+
+  const handleHistory = (previousNumber) => {
+    setPreviousNumbers([...previousNumbers, previousNumber]);
+  }
+
+  // Fetch data when load
+  useEffect(() => {
+    const history = JSON.parse(localStorage.getItem('history'));
+    if (history) {
+      setPreviousNumbers(history)
+    }
+  }, []);
+
+  useEffect(() => {
+    if (previousNumbers.length > 0 ) {
+     localStorage.setItem('history', JSON.stringify(previousNumbers));
+    }
+  }, [previousNumbers]);
+
   return (
     <div className="App">
         <Header title='Calculadora de Primos_'/>
-        <Cards title='Esse sistema calcula a quantidade de números primos menores do que o número que você digitar' comp={PrimeCalculation}/>
+        <CalculatorCard title='Esse sistema calcula a quantidade de números primos menores do que o número que você digitar'
+           handleHistory={handleHistory} />
+        <HistoryCard title="Histórico de números" previousNumbers={previousNumbers} />
         <Footer />
     </div>
   );
